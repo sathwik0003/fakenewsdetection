@@ -1,0 +1,246 @@
+\documentclass[conference,compsoc]{IEEEtran}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\begin{document}
+\title{FAKE NEWS DETECTION}
+\author{\IEEEauthorblockN{PENDEM SATHWIK}
+\IEEEauthorblockA{CSE\\
+IIIT Sri City\\
+Andhra Pradesh, India\\
+Email: sathwik.p21@iiits.in}
+\and
+\IEEEauthorblockN{CH.LAKSHMI NISHITHA}
+\IEEEauthorblockA{CSE\\
+IIIT Sri City\\
+Andhra Pradesh, India\\
+Email: lakshminishitha.c21@iiits.in}}
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+Fake news is the false news which influences people in a wrong direction. These days fake news is spreading so fast and becoming viral with the increased use of social media. It can be any kind of news like general, political, sports etc. Also in recent years the geopolitical news is being manipulated by different countries to destroy stock market, to spread their propaganda, to destroy value of currency. The manipulated political news can make people take wrong decisions in selecting their representatives which would affect the entire country. Sometimes fake news talks about emergency and dangerous things can make people panic or do wrong things.
+So it is very important for people to know whether a news is real or fake with high accuracy.    
+By keeping all these in mind we made a project on FAKE NEWS DETECTION to make sure the NEWS that is being spread is accurate. In this project we used a dataset from Kaggle containing both genuine and fake news regarding politics. In this project we used different natural language processing techniques for data cleaning, data preprocessing and model building using N-gram which gave an accuracy of 91%. 
+
+\end{abstract}
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+In earlier days there are only two sources for getting news. One is the printed news paper and the other is radio. In those days spreading of fake news is very difficult due to less number of sources. But in today’s world there are various sources. We have a great number of websites on Internet sharing news. Also many social media platforms have been established in which a small news can become more viral even if it is real or fake. This has become a major problem for the people to know about the real news. They are unable to distinguish between the fake news and the real news.
+
+Suppose there is a news that Corona is starting again in India. By seeing this news people won’t think whether it is real or fake but start panic. As we all know the previous effect caused people start panic and take wrong decisions. Also if there is news about a political party about the good activities they have done but which were not done in real. By seeing this news people get impressed about the party and vote for that party in upcoming elections. But the reality is the news is fake. 
+
+\subsection{Motivation}
+Finding and detecting fake news is like being a guardian for the truth in the news. It's important because fake news spreads wrong information quickly in people. Detecting fake news helps keep our information accurate, especially in important things like elections. It protects how our society works, making sure people know the truth and reducing the chances of problems. Beyond that, it keeps our money safe, our online world secure, and helps us stay healthy during tough times. So we all know detecting fake news can make better decisions together.
+
+
+\section{State of the art/Background}
+Fake news detection is very important for the people in the world of social media. Here are some proposed approches from different research papers which would help for knowing the accurate model:
+\begin{enumerate}
+
+\item \textbf{New explainability method for BERT-based model in fake news detection}-The objective of this paper is to  approach  BERT-based fake news detectors which often utilise Natural Language Processing and Deep Learning for fake news detection.
+
+\url{https://www.nature.com/articles/s41598-021-03100-6}
+
+\item \textbf{Fake News Detection Using Natural Language Processing and Logistic Regression}-In this paper the problem of fake is detected using machine learning techniques and give verifiable news. The paper identifies counterfeit news using Logistic Regression. This model successfully labels a said article with up to 80 percent accuracy.
+
+\url{https://ieeexplore.ieee.org/document/9563292}
+\item \textbf{Comparison of Random Forest and Gradient Boosting algorithms for detecting fake news articles on media}-In this paper applies the chosen algorithms Random Forest and Gradient. Among the two selected supervised machine learning algorithms the research found that Gradient Boosting algorithm has better Accuracy and better F1 scores to detect fake news articles on given data sets.
+
+\url{https://www.diva-portal.org/smash/get/diva2:1679658/FULLTEXT02}
+
+\item \textbf{Fake news detection using logistic regression algorithm with machine learning}-With the help of Machine learning and natural language processing, it is tried to aggregate the news and later determine whether the news is real or fake using Logistic regression.The proposed model is working well and defining correctness of the results 97.21 percent of accuracy .
+
+\url{https://assets.researchsquare.com/files/rs-3156168/v1/f87824c6-4d9e-4f19-a27f-818a851b1de9.pdf?c=1689691469}
+\item \textbf{Fake News Accuracy using Naive Bayes Classifier}--This paper helps us to detect the accuracy of the fake news using Naive Bayes classification. Here the data is divided into test dataset and train dataset and the train dataset is divided into groups of similar information. Test data is later matched with these groups and accuracy is found using Naive Bayes classifier.
+
+\url{https://www.ijrte.org/wpcontent/uploads/papers/v8i1C2/A11660581C219.pdf}
+
+\item \textbf{Fake news detection using Decision tree and adaboost}-The proposed method using decision trees achieves high accuracy in fake news detection, which demonstrates the effectiveness of decision trees in feature extraction. Furthermore, Ada boost is shown which further improves the overall classification performance.
+
+\url{https://www.eurchembull.com/uploads/paper/65c4c56c14a269d4156a4f34a28538ef.pdf}
+
+\item \textbf{Fake News Detection using Bi-directional LSTM}-Recurrent Neural Network-The paper presents a fake news detection model based on Bi-directional LSTM-recurrent neural network.The result shows the superiority in terms of accuracy of Bi-directional LSTM model over other methods namely CNN, vanilla RNN and unidirectional LSTM for fake news detection.
+
+\url{https://www.sciencedirect.com/science/article/pii/S1877050920300806}
+\item \textbf{Fake News Detection Using Naive Bayes and Support Vector Machine Algorithm}-In this paper we make use of two classification models, naïve Bayes and support vector machine.
+
+\url{https://www.researchgate.net/publication/334192809_A_Study_on_Fake_News_Detection_Using_Naive_Bayes_SVM_Neural_Networks_and_LSTM}
+
+\item \textbf{Fake News Detection Using Machine Learning}-The aim of this paper is to try to tackle the growing problems with fake news.During this paper two classification models are used: Naive Bayes and TF-IDF Vectorizer.
+
+\url{https://iopscience.iop.org/article/10.1088/1757-899X/1099/1/012040}
+\item \textbf{Fake news detection: A hybrid CNN-RNN based deep learning approach}-This work proposes a novel hybrid deep learning model that combines convolutional and recurrent neural networks for fake news classification. The model was successfully validated on two fake news datasets (ISO and FA-KES), achieving detection results that are significantly better than other non-hybrid baseline methods. 
+
+\url{https://www.sciencedirect.com/science/article/pii/S2667096820300070}
+
+\end{enumerate}
+\section{Proposed System}
+The approach we used for fake news detection is by using traditional NLP techniques such as text cleaning, word level tokenization, lemmatization, stop word removal, word sense disambiguation, N-gram model.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.4\linewidth, height=0.4\textheight, keepaspectratio]{flowchart.jpg}
+    \caption{The steps involved in this system.}
+    \label{fig:flowchart}
+\end{figure}
+
+
+\subsection{Data Collection}
+Collected to datasets from Kaggle.
+\begin{itemize}
+\item Namely true.csv containing all the genuine news
+\item False.csv containing all the fake news
+\end{itemize}
+
+\subsection{Data Cleaning}
+Cleaned the data by removing unwanted special characters in the tuples of dataset which includes â€šÃº¹¬
+Now our true.csv containing some redundant data in the tuple which is source name of the text. So, we cleaned the data by removing all the source names of the data.
+Now our duty is to merge the data sets. So how? We need to identify the data which is true or which is fake after merging the data.
+For this analysation We observed 2 methods personally, one is observing all the subjects
+Fake news have subjects:
+\begin{itemize}
+\item News
+\item Left-News
+\item USNews
+\item Politics
+\item Government News
+\item Middle-east News
+\end{itemize}
+True news has subjects:
+\begin{itemize}
+\item Political News
+\item World News
+\end{itemize}
+Based on the subject I can identify whether it is fake or genuine but I think maintaining the subject column is redundant and it has 6 different values which may hard for compare.
+Our alternative approach is to add a new column to both fake and true csv files and for fake I’ll set them to 0 and whereas for genuine or true news I’ll set them to 1.This is effective than comparing with subjects we need shorter memory and we have only 2 values to compare either 0 means fake 1 means true.
+
+Dropping Unwanted Columns:
+Now we dropped redundant columns such as title, subject and date. 
+
+\subsection{Tokenization}
+It is the process of breaking entire sentence or news articles into smaller components such as words.For each procedure we used a function tokenize where each news article is broken intlo simpler words. Also, the punctuation marks are removed. Now after tokenization we get the array of words.
+
+\subsection{Lemmatization and Stemming}
+Then we performed lemmatization and stemming to the data
+\begin{itemize}
+    \item For lemmatization we defined our own set of rules and change the word into the root word.
+    \item It is difficult for our own set of lemmetization rules to completely lemmitize all words.So, the words which are missed here stemming is performed on them. Here we have written various rules for prefixes and suffixes. After this step most of the words come to the root word by which it will be easier for the next process.
+\end{itemize}
+
+\subsection{Stopword Removal}
+Basically, stopword removal is removing unwanted words.
+
+For stopword removal we’re using 2 techniques 
+First approach is to list down the most frequent repeating words and which have less preferences and then we written a function if the word is from the defined set we’re going to skip it.
+We kind of thought that this may not remove all the stopwords because we may miss some crucial stopwords in our defined set of stopwords.
+
+So to cleanup our data more precisely we observed on pattern that stopwords are strings have length less than 3 or 2. Hence we decided to skip all the words having length 2 or below. We have not choosen 3 because me may miss crucial words like cat, dog ,car- - - etc
+
+\subsection{Word Sense Disambiguation}
+Word Sense Disambiguation means identifying the ambiguity in words by using its neighbouring words.
+
+To avoid disambiguity with words we using this step. this step can be included in preprocessing of the data.We written our own rules of ambiguous words.We mentioned the different types of senses for such words and we also mentioned default sense.Since our project is about news detection we mainly focused on the ambiguous words related to politics, news.After comparing all our tokens with set of senses if any ambiguous word is matched with token we proceed for further steps. 2 words before the token and four words.
+
+After the token are chosen to compare with the sense.If any context word matches then the related sense will be displayed instead of that letter else default sense is displayed.
+
+\subsection{Data Splitting}
+The data is splitted into training data and testing data, on whole training data is 80 percent and the testing data is 20 percent.We self-defined a function named train-test-split to split up the data.the function returns test and train data separately.news[text] is sent as features, news[result] is sent as label because it helps to detect it either genuine news or fake news.
+
+\subsection{Training using BiGram}
+By using n-gram we detected whether a news is fake or real
+A function named get-bi-grams takes tokens as inputs and returns list of bigrams.later these frequencies of bi-grams are stored individually for fake and true dataset.
+
+If the label is 0(indicating fake news), it iterated over the bi-grams and updates the frequencies in the fake-bi-grams dictionary.
+
+If the label is 1 (indicating genuine news), it iterated over the bi-grams and updates the frequencies in the genuine-bi-grams dictionary.
+
+Bi-gram frequencies are utilized for predicting the label of news.
+
+\subsection{Prediction}
+a function predict-label is defined, which takes a document, calculates its bi-grams and predicts its label based on the higher score between fake and true bi-gram frequencies.And then it applied to each of the test data and then predictions are stored.later accuracy is calculated based on the predictions.
+
+
+
+\section{Results}
+
+The following are the outputs in each step:
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1\linewidth]{ds1.jpg}
+\caption{\label{fig:dataset1}True News Dataset}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1\linewidth]{ds2.jpg}
+\caption{\label{fig:dataset2}Fake News Dataset}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1\linewidth]{dc1.jpg}
+\caption{\label{fig:dataset3}After Data Cleaning}
+\end{figure}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1\linewidth]{dc2.jpg}
+\caption{\label{fig:dataset4}Dataset after dropping unwanted columns}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1\linewidth]{dc3.jpg}
+\caption{\label{fig:dataset5}After Word Sense Disambiguiation}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1\linewidth]{dc4.jpg}
+\caption{\label{fig:dataset6}After Word Sense Disambiguiation}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1\linewidth]{dc5.jpg}
+\caption{\label{fig:dataset7}Tokenization}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1\linewidth]{dc6.jpg}
+\caption{\label{fig:dataset8}Stemming, Lemmetization, StopWord Removal}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1.5\linewidth]{dc7.jpg}
+\caption{\label{fig:dataset9}After Training Model The output}
+\end{figure}
+
+\clearpage % Forces placement of all figures before moving to the next page
+
+\section{Conclusion}
+
+In conclusion, fake news detection technology is pivotal in shielding the public from misinformation, preserving the integrity of information sources. While its role in filtering out deceptive content is crucial, careful implementation is essential to avoid unintended censorship or bias. Striking a delicate balance, ethical guidelines must ensure accountability and transparency in deploying these technologies. Concurrently, promoting media literacy remains imperative, empowering individuals to discern between reliable and misleading information. Achieving a more informed society requires not only technological refinement but also an emphasis on critical thinking, culminating in a resilient defense against the pervasive influence of fake news.
+
+\section{Future Work}
+In the above the fake news classification is did by using bigram approach for more efficiency we can go to higher multigram models such as trigram, quadragram where the efficiency will be greater.
+
+We can also Name entity extension to it, such that it checks with existing data if NER not matches any it can simply give cannot decide, because not to decide 
+is better that deciding false assumptiom.
+
+Also to attain more efficiency we can build model in every individual area such as a model only for political news, a model only for film news, a model only for sports news... , if we build like this, they may have greater probabiliy to predict correct.
+
+
+
+
+\end{document}
